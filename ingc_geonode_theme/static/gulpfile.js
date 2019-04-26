@@ -6,14 +6,14 @@ var less = require('gulp-less');
 var del = require('del');
 
 gulp.task('clean:site_base.css', [], function () {
-  return del([ './css/site_base.css' ]);
+  return del([ './ingc_geonode_theme/css/custom_site_base.css' ]);
 });
 
 gulp.task('compile:site_base.css', [], function() {
   return gulp.src(["./less/site_base.less"], {base: './'})
     .pipe(less({}))
-    .pipe(concat("site_base.css"))
-    .pipe(gulp.dest("./css"));
+    .pipe(concat("custom_site_base.css"))
+    .pipe(gulp.dest("./ingc_geonode_theme/css"));
 });
 
 gulp.task('watch', function() {
