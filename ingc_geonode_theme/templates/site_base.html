@@ -98,7 +98,9 @@
               </li>
 		      {% else %}
 		      <li><a href="#" data-toggle="modal" data-target="#SigninModal" role="button">
-                  <img width="32" height="36" src="{{ STATIC_URL }}ingc_geonode_theme/img/profile-icon-white.png" /></a></li>
+{#                  <img width="32" height="36" src="{{ STATIC_URL }}ingc_geonode_theme/img/profile-icon-white.png" />#}
+                  {% trans "Login" %}
+              </a></li>
               {% endif %}
             </ul>
           </div> <!--/.nav-collapse -->
