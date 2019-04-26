@@ -7,287 +7,291 @@
 {% block body_class %}home{% endblock %}
 
 {% block middle %}
-  {% block hero %}
-<div class="jumbotron">
-  <div class="row white tagline">
-      <div class="container">
-        <div class="big-search">
-            <h2 class="text-shade" style="text-align: center;">{% trans "Realistic Natural Hazard Impact Analysis -" %}</h2>
-            <h2 class="text-shade" style="text-align: center">{% trans "Contingency Planning Made Easy." %}</h2>
-            <div class="search">
-                <form id="search" action="{% url "search" %}" >
-                    <span class="fa fa-search fa-2x"></span>
-                    {% if HAYSTACK_SEARCH %}
-                        <input id="search_input" type="text" placeholder="Search Data" class="form-control" name="q">
-                    {% else %}
-                        <input id="search_input" type="text" placeholder="Search Data" class="form-control" name="title__icontains">
-                    {% endif %}
-                </form>
+    {% block hero %}
+        <div class="jumbotron">
+            <div class="row white tagline">
+                <div class="container">
+                    <div class="big-search" style="padding-top: 40vh">
+                        <h2 class="text-shade"
+                            style="text-align: center;">{% trans "Realistic Natural Hazard Impact Analysis" %}</h2>
+                    </div>
+                    <!-- container -->
+                </div>
+                <!-- row -->
             </div>
-            <div class="run-analysis">
-                <a style="font-size: 26px;font-weight: 900;" class="btn btn-warning font-white" href="{% url "geosafe:analysis-create" %}">
-                    {% trans "Run Analysis" %}
-                </a>
+            <div class="row green padding-fifty">
+                <div class="container">
+                    <table>
+                        <tr>
+                            <td>
+                                <h1 class="text-shade">{% trans "What Is It All About?" %}</h1>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    {% trans "This platform is part of an initiative where the Government of Mozambique and the World Bank have been promoting the use of open geospatial data for government disaster risk management through the Open Data for Resilience Initiative to provide technical assistance to INGC" %}
+                                    {% trans "(National Disaster Management Institute) for the management and use of geospatial data to fulfil their core mandate and activities, particularly regarding contingency planning and emergency response." %}
+                                    {% trans "The aim is to improve the capacity to respond to disasters and to build the resilience of key public infrastructure in hazard-prone areas." %}
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- container-->
+                </div>
+                <!-- row -->
             </div>
+            {% include "_status_message.html" %}
+            {% include "_announcements.html" %}
+            {% include "_messages.html" %}
+            <!-- div class="row white font-grey what-section" -->
+            <div class="row white font-grey what-section">
+                <div class="green-triangle"></div>
+                <div class="container padding-fifty">
+                    <!-- div class="row" -->
+                    <table class="what-can-do">
+                        <tr>
+                            <td class="column-left">
+                                <ol style="margin: 5px 50px;">
+                                    <li>
+                                        <b>{% trans "Perform Analysis" %}</b></li>
+                                    <p>
+                                        {% trans "Perform an InaSAFE analysis using hazard and exposure data hosted on GeoNode." %}
+                                        {% trans "Visualize the InaSAFE analysis results as a map and infographic, and as downloadable PDF reports." %}
+                                    </p>
+
+                                    <li>
+                                        <b>{% trans "Analysis List" %}</b></li>
+                                    <p>
+                                        {% trans "Browse previously run InaSAFE analysis results and visualize the map and report products for each analysis." %}
+                                    </p>
+                                    <li>
+                                        <b>{% trans "Metasearch" %}</b></li>
+                                    <p>
+                                        {% trans "Search for datasets in other online geospatial data stores that publish their catalogues using the CSW standard." %}
+                                    </p>
+                                </ol>
+                            </td>
+                            <td class="column-right">
+                                <h1 class="font-green text-shade text-center"
+                                    style="margin-top: 0px !important;">{% trans "What Can It Do?" %}</h1>
+                                <div id='mySwipeWhat' class="swipe-what">
+                                    <div class='swipe-what-wrap'>
+                                        <div><img src="{% static 'ingc_geonode_theme/img/laptop_it_can_do.png' %}"/>
+                                        </div>
+                                        <div><img src="{% static 'ingc_geonode_theme/img/laptop_it_can_do_2.png' %}"/>
+                                        </div>
+                                        <div><img src="{% static 'ingc_geonode_theme/img/laptop_it_can_do_3.png' %}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+                        </tr>
+                    </table>
+                    <!-- container -->
+                </div>
+                <!-- row -->
+            </div>
+
+            <div class="row green font-white safe-section">
+                <div class="white-triangle"></div>
+                <div class="container padding-fifty">
+                    <h1>{% trans "How To Run An Analysis?" %}</h1>
+                    <table style="width: 100%; table-layout: fixed;">
+                        <tr>
+                            <td class="column-left">
+                                <div><img src="{% static 'ingc_geonode_theme/img/laptop-run-analysis.png' %}"/></div>
+                            </td>
+                            <td class="column-right" style="vertical-align: top;">
+                                <ol style="margin: 5px 50px;">
+                                    <li>
+                                        {% trans "Select an exposure layer (e.g. road, structure, population)" %}
+                                    </li>
+                                    <li>
+                                        {% trans "Select a hazard layer (e.g. flood, tsunami, earthquake, volcano, and volcanic ash)" %}
+                                    </li>
+                                    <li>
+                                        {% trans "Select an impact function" %}
+                                    </li>
+                                </ol>
+                                <p style="margin-left: 65px;">
+                                    <a style="font-size: 26px;font-weight: 900;"
+                                       class="btn btn-warning fa-lg font-white"
+                                       href="{% url "geosafe:analysis-create" %}">
+                                        {% trans "Run Analysis" %}
+                                    </a>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- container -->
+                </div>
+                <!-- row -->
+            </div>
+            <!-- jumbotron -->
         </div>
-      <!-- container -->
-      </div>
-  <!-- row -->
-  </div>
-  <div class="row green padding-fifty">
-  	<div class="container">
-        <table>
-            <tr>
-                <td>
-                    <h1 class="text-shade">{% trans "What Is It All About?" %}</h1>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p>
-                        {% trans "This platform is part of an initiative where the Government of Mozambique and the World Bank have been promoting the use of open geospatial data for government disaster risk management through the Open Data for Resilience Initiative to provide technical assistance to INGC" %}
-                        {% trans "(National Disaster Management Institute) for the management and use of geospatial data to fulfil their core mandate and activities, particularly regarding contingency planning and emergency response." %}
-                        {% trans "The aim is to improve the capacity to respond to disasters and to build the resilience of key public infrastructure in hazard-prone areas." %}
-                    </p>
-                </td>
-            </tr>
-        </table>
-    <!-- container-->
-    </div>
-  <!-- row -->
-  </div>
-  {% include "_status_message.html" %}
-  {% include "_announcements.html" %}
-  {% include "_messages.html" %}
-  <!-- div class="row white font-grey what-section" -->
-  <div class="row white font-grey what-section">
-    <div class="green-triangle"></div>
-    <div class="container padding-fifty">
-      <!-- div class="row" -->
-              <table class="what-can-do">
-                  <tr>
-                      <td class="column-left">
-                          <ol style="margin: 5px 50px;">
-                              <li>
-                                  <b>{% trans "Perform Analysis"  %}</b></li>
-                                  <p>
-                                      {% trans "Perform an InaSAFE analysis using hazard and exposure data hosted on GeoNode."  %}
-                                      {% trans "Visualize the InaSAFE analysis results as a map and infographic, and as downloadable PDF reports."  %}
-                                  </p>
 
-                              <li>
-                                  <b>{% trans "Analysis List"  %}</b></li>
-                                  <p>
-                                      {% trans "Browse previously run InaSAFE analysis results and visualize the map and report products for each analysis."  %}
-                                  </p>
-                              <li>
-                                  <b>{% trans "Metasearch" %}</b></li>
-                                  <p>
-                                      {% trans "Search for datasets in other online geospatial data stores that publish their catalogues using the CSW standard." %}
-                                  </p>
-                          </ol>
-                      </td>
-                      <td class="column-right">
-                                  <h1 class="font-green text-shade text-center" style="margin-top: 0px !important;">{% trans "What Can It Do?" %}</h1>
-                          <div id='mySwipeWhat' class="swipe-what">
-                              <div class='swipe-what-wrap'>
-                                  <div><img src="{% static 'ingc_geonode_theme/img/laptop_it_can_do.png' %}"/></div>
-                                  <div><img src="{% static 'ingc_geonode_theme/img/laptop_it_can_do_2.png' %}"/></div>
-                                  <div><img src="{% static 'ingc_geonode_theme/img/laptop_it_can_do_3.png' %}"/></div>
-                              </div>
-                          </div>
-                      </td>
+    {% endblock %}
 
-                  </tr>
-              </table>
-    <!-- container -->
-    </div>
-  <!-- row -->
-  </div>
+    {% block mainbody %}
 
-  <div class="row green font-white safe-section">
-      <div class="white-triangle"></div>
-      <div class="container padding-fifty">
-          <h1>{% trans "How To Run An Analysis?" %}</h1>
-              <table style="width: 100%; table-layout: fixed;">
-                  <tr>
-                      <td class="column-left">
-                          <div><img src="{% static 'ingc_geonode_theme/img/laptop-run-analysis.png' %}"/></div>
-                      </td>
-                      <td class="column-right" style="vertical-align: top;">
-                          <ol style="margin: 5px 50px;">
-                              <li>
-                                  {% trans "Select an exposure layer (e.g. road, structure, population)" %}
-                              </li>
-                              <li>
-                                  {% trans "Select a hazard layer (e.g. flood, tsunami, earthquake, volcano, and volcanic ash)" %}
-                              </li>
-                              <li>
-                                  {% trans "Select an impact function" %}
-                              </li>
-                          </ol>
-                            <p style="margin-left: 65px;">
-                                <a style="font-size: 26px;font-weight: 900;" class="btn btn-warning fa-lg font-white" href="{% url "geosafe:analysis-create" %}">
-                                    {% trans "Run Analysis" %}
-                                </a>
-                            </p>
-                      </td>
-                  </tr>
-              </table>
-    <!-- container -->
-    </div>
-  <!-- row -->
-  </div>
-<!-- jumbotron -->
-</div>
+        {% block datasets %}
+        {% endblock %}
 
-  {% endblock %}
+        {% block showcase %}
+        {% endblock %}
 
-  {% block mainbody %}
-
-  {% block datasets %}
-  {% endblock %}
-
-  {% block showcase %}
-  {% endblock %}
-
-  {% endblock %}
+    {% endblock %}
 
 {% endblock %}
 
 {% block extra_script %}
-{{ block.super }}
-{% if DEBUG_STATIC %}
-<script src="{{ STATIC_URL }}lib/js/angular.js"></script>
-{% endif %}
-<script type="text/javascript" src="{% static 'geosafe/js/swipe.js' %}"></script>
-<script type="text/javascript">
-    FEATURED_URL = '{% url 'api_dispatch_list' api_name='api' resource_name='featured' %}'
-    'use strict';
-    (function(){
-      var module = angular.module('featured', []);
-      module.run(function($http, $rootScope){
-        $http.get(FEATURED_URL).success(function(data){
-          $rootScope.featured = data.objects;
+    {{ block.super }}
+    {% if DEBUG_STATIC %}
+        <script src="{{ STATIC_URL }}lib/js/angular.js"></script>
+    {% endif %}
+    <script type="text/javascript" src="{% static 'geosafe/js/swipe.js' %}"></script>
+    <script type="text/javascript">
+        FEATURED_URL = '{% url 'api_dispatch_list' api_name='api' resource_name='featured' %}'
+        'use strict';
+        (function () {
+            var module = angular.module('featured', []);
+            module.run(function ($http, $rootScope) {
+                $http.get(FEATURED_URL).success(function (data) {
+                    $rootScope.featured = data.objects;
+                });
+            });
+        })();
+        var scrollTimer = 10000;
+        var elemWhat = document.getElementById('mySwipeWhat');
+        window.mySwipeWhat = Swipe(elemWhat, {
+            auto: scrollTimer,
+            continuous: true,
+            callback: function (index, elemWhat) {
+            }
         });
-      });
-    })();
-    var scrollTimer = 10000;
-    var elemWhat = document.getElementById('mySwipeWhat');
-    window.mySwipeWhat = Swipe(elemWhat, {
-        auto: scrollTimer,
-        continuous: true,
-        callback: function(index, elemWhat) {}
-    });
 
-</script>
-<script>
-	$('[data-toggle="tooltip"]').tooltip();
-</script>
+    </script>
+    <script>
+        $('[data-toggle="tooltip"]').tooltip();
+    </script>
 
-<style>
-    img {
-        width: 32px;
-        height: 36px;
-    }
+    <style>
+        img {
+            width: 32px;
+            height: 36px;
+        }
 
-    .extra-note {
-        padding-left: 15px;
-        margin-top: 20px;
-        font-size: 18px;
-    }
+        .extra-note {
+            padding-left: 15px;
+            margin-top: 20px;
+            font-size: 18px;
+        }
 
-    .safe-section li {
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
+        .safe-section li {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
 
-    .safe-section {
-        font-size: 1.5em;
-    }
+        .safe-section {
+            font-size: 1.5em;
+        }
 
-    .safe-section {
-        min-width: 320px;
-    }
+        .safe-section {
+            min-width: 320px;
+        }
 
-    .safe-section h1 {
-        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.9);
-        font-size: 56px;
-        font-weight: 900;
-    }
+        .safe-section h1 {
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.9);
+            font-size: 56px;
+            font-weight: 900;
+        }
 
-    .safe-section ul {
-        font-size: 20px;
-        padding-top: 15px;
-    }
+        .safe-section ul {
+            font-size: 20px;
+            padding-top: 15px;
+        }
 
-    .safe-section p {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
+        .safe-section p {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
 
 
-    a.anchor {
-        display: block;
-        position: relative;
-        top: -75px;
-        visibility: hidden;
-    }
+        a.anchor {
+            display: block;
+            position: relative;
+            top: -75px;
+            visibility: hidden;
+        }
 
-    table.tryit {
-        width: 100%;
-    }
-    .btn-warning {
-        background-color: #f6a623;
-    }
-    .green {
-        background-color: #2aa858;
-    }
-    .white {
-        background-color: white;
-    }
-    .font-white {
-        color: white !important;
-    }
-    .font-black {
-        color: black;
-    }
-    .font-green {
-        color: #2aa858 !important;
-    }
-    .font-grey {
-        color: #4a4a4a !important;
-    }
-    .padding-fifty {
-        padding-top: 50px;
-        padding-bottom: 50px;
-    }
-    .text-shade {
-        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.9);
-    }
-    .tagline {
-        background-image: url(../static/ingc_geonode_theme/img/01.jpg);
-        background-repeat: no-repeat;
-        background-size:100% 100%;
-        -ms-background-size: 100% 100%;
-        -o-background-size: 100% 100%;
-        -moz-background-size: 100% 100%;
-        -webkit-background-size: 100% 100%;
-        height: 480px;
-    }
-    .green-triangle {
-        background: url(../static/ingc_geonode_theme/img/green-triangle.png) no-repeat;
-        width: 40px;
-        height: 36px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .white-triangle {
-        background: url(../static/ingc_geonode_theme/img/white-triangle.png) no-repeat;
-        width: 40px;
-        height: 36px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-</style>
+        table.tryit {
+            width: 100%;
+        }
+
+        .btn-warning {
+            background-color: #f6a623;
+        }
+
+        .green {
+            background-color: #2aa858;
+        }
+
+        .white {
+            background-color: white;
+        }
+
+        .font-white {
+            color: white !important;
+        }
+
+        .font-black {
+            color: black;
+        }
+
+        .font-green {
+            color: #2aa858 !important;
+        }
+
+        .font-grey {
+            color: #4a4a4a !important;
+        }
+
+        .padding-fifty {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .text-shade {
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.9);
+        }
+
+        .tagline {
+            background-image: url(../static/ingc_geonode_theme/img/01.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            -ms-background-size: 100% 100%;
+            -o-background-size: 100% 100%;
+            -moz-background-size: 100% 100%;
+            -webkit-background-size: 100% 100%;
+            height: 480px;
+        }
+
+        .green-triangle {
+            background: url(../static/ingc_geonode_theme/img/green-triangle.png) no-repeat;
+            width: 40px;
+            height: 36px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .white-triangle {
+            background: url(../static/ingc_geonode_theme/img/white-triangle.png) no-repeat;
+            width: 40px;
+            height: 36px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 {% endblock extra_script %}

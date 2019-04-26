@@ -10,7 +10,7 @@ gulp.task('clean:site_base.css', [], function () {
 });
 
 gulp.task('compile:site_base.css', [], function() {
-  return gulp.src(["./less/site_base.less"], {base: './'})
+  return gulp.src(["./less/custom_site_base.less"], {base: './'})
     .pipe(less({}))
     .pipe(concat("custom_site_base.css"))
     .pipe(gulp.dest("./ingc_geonode_theme/css"));
