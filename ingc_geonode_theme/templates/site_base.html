@@ -64,11 +64,6 @@
             {% endblock %}
           </ul>
 	      <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a style="font-size: 20px" class="btn btn-warning font-white" href="{% url "geosafe:analysis-create" %}">
-                    {% trans "Run Analysis" %}
-            </a>
-              </li>
             {% if user.is_authenticated %}
             <li>
               <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
