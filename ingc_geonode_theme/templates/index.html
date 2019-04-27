@@ -92,41 +92,6 @@
                 <!-- row -->
             </div>
 
-            <div class="row green font-white safe-section">
-                <div class="white-triangle"></div>
-                <div class="container padding-fifty">
-                    <h1>{% trans "How To Run An Analysis?" %}</h1>
-                    <table style="width: 100%; table-layout: fixed;">
-                        <tr>
-                            <td class="column-left">
-                                <div><img src="{% static 'ingc_geonode_theme/img/laptop-run-analysis.png' %}"/></div>
-                            </td>
-                            <td class="column-right" style="vertical-align: top;">
-                                <ol style="margin: 5px 50px;">
-                                    <li>
-                                        {% trans "Select an exposure layer (e.g. road, structure, population)" %}
-                                    </li>
-                                    <li>
-                                        {% trans "Select a hazard layer (e.g. flood, tsunami, earthquake, volcano, and volcanic ash)" %}
-                                    </li>
-                                    <li>
-                                        {% trans "Select an impact function" %}
-                                    </li>
-                                </ol>
-                                <p style="margin-left: 65px;">
-                                    <a style="font-size: 26px;font-weight: 900;"
-                                       class="btn btn-warning fa-lg font-white"
-                                       href="{% url "geosafe:analysis-create" %}">
-                                        {% trans "Run Analysis" %}
-                                    </a>
-                                </p>
-                            </td>
-                        </tr>
-                    </table>
-                    <!-- container -->
-                </div>
-                <!-- row -->
-            </div>
             <!-- jumbotron -->
         </div>
 
