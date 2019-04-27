@@ -1,6 +1,9 @@
 .home .navbar-inverse {
   background-color: #4a4a4a !important;
 }
+.home .jumbotron {
+  background: #4a4a4a !important;
+}
 .tagline {
   background-image: url(../static/ingc_geonode_theme/img/01.jpg);
   height: 95vh !important;
